@@ -1,0 +1,42 @@
+﻿@page "{id}"
+@model Aoife_Ryan_S00190488.Pages.Students.StudentDetailsModel
+@{
+    ViewData["Title"] = "StudentDetails";
+}
+
+<h2>StudentDetails</h2>
+
+<table>
+    <tr>
+        <td>@Model.Student.Firstname</td>
+    </tr>
+    <tr>
+        <td>@Model.Student.Surname</td>
+    </tr>
+    <tr>
+        <td>@Model.Student.ID</td>
+    </tr>
+    <tr>
+        <td>@Model.Student.DOB</td>
+    </tr>
+    <tr>
+        <td>@Model.Student.Gender</td>
+        <td>@Model.Student.ParentFN</td>
+        <td>@Model.Student.ParentSN</td>
+        <td>@Model.Student.Relationship</td>
+        <td>@Model.Student.Address</td>
+        <td>@Model.Student.MobileNum</td>
+        <td>@Model.Student.Email1</td>
+    </tr>
+</table>
+
+<ul>
+    @*<li>
+        <a asp-page="StudentDetails" asp-route-id=@Model.Student.ID>Details</a>
+    </li>*@
+</ul>
+<form method="post">
+    <input type="hidden" asp-for=Student.ID />
+    <button type="submit">Delete</button>
+</form>
+

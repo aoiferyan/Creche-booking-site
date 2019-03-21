@@ -1,0 +1,115 @@
+﻿@page
+@model Aoife_Ryan_S00190488.Pages.Students.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@{
+    ViewData["Title"] = "Create";
+}
+@*//<h2>@ViewData["Title"]</h2>*@
+@*//<h3>@Model.Message</h3>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FormDetails</title>
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Sligo Creche Application Form</h1>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <section id="section1">
+            <h3>About Child:</h3>
+
+            <div>
+                <label asp-for=Student.Firstname></label>
+                <input asp-for=Student.Firstname />
+                <span asp-validation-for=Student.Firstname></span>
+            </div>
+            <div>
+                <label asp-for=Student.Surname></label>
+                <input asp-for=Student.Surname />
+                <span asp-validation-for=Student.Surname></span>
+            </div>
+            <div>
+                <label asp-for=Student.ID></label>
+                <input asp-for=Student.ID />
+            </div>
+            <div>
+                <label asp-for=Student.DOB></label>
+                <input asp-for=Student.DOB type="date" />
+            </div>
+            <div>
+                <label asp-for=Student.Gender></label>
+                <input asp-for=Student.Gender />
+            </div>
+       
+            <div>
+                <h3>About Parent/Guardian:</h3>
+
+                <label asp-for=Student.ParentFN></label>
+                <input asp-for=Student.ParentFN />
+            </div>
+            <div>
+                <label asp-for=Student.ParentSN></label>
+                <input asp-for=Student.ParentSN />
+            </div>
+            <div>
+                <label asp-for=Student.Relationship>Relationship to child</label>
+                <input asp-for=Student.Relationship />
+            </div>
+            <div>
+                <label asp-for=Student.Address></label>
+                <input asp-for=Student.Address />
+            </div>
+            <div>
+                <label asp-for=Student.MobileNum>Primary Number</label>
+                <input asp-for=Student.MobileNum />
+            </div>
+            <div>
+                <label asp-for=Student.SecondNum>Second Number</label>
+                <input asp-for=Student.SecondNum />
+            </div>
+            <div>
+                <label asp-for=Student.OtherNum>Third Number</label>
+                <input asp-for=Student.OtherNum />
+            </div>
+            <div>
+                <label asp-for=Student.Email1>Primary Email</label>
+                <input asp-for=Student.Email1 />
+            </div>
+            <div>
+                <label asp-for=Student.Email2>Second Email</label>
+                <input asp-for=Student.Email2 />
+            </div>
+        </section>
+        <section id="section2">
+            <h3>Hours Requested</h3>
+            <fieldset>
+                <legend>Please choose one option</legend>
+                <input value=FullTime name="Operation" id=FullTime type="radio" /> <label for=FullTime>FullTime</label>
+                <input value=PartTime name="Operation" id=PartTime type="radio" /> <label for=PartTime>PartTime</label>
+            </fieldset>
+
+            <h3>Days Requested</h3>
+            <fieldset>
+                <legend>Please choose any or all options</legend>
+                <input value=Monday name="Operation" id=Monday type="checkbox" /> <label for=Moday>Monday</label>
+                <input value=Tuesday name="Operation" id=Tuesday type="checkbox" /> <label for=Tuesday>Tuesday</label>
+            </fieldset>
+
+            <h3>Start Date Requested</h3>
+            <label asp-for=Student.StartDate>Start date</label>
+            <input asp-for=Student.StartDate type="date" />
+        </section>
+        <br />
+        <br />
+        <button type="submit">Submit here</button>
+    </form>
+
+    @*<h1>@Model.Message</h1>*@
+</body>
+</html>
