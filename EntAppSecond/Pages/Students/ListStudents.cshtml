@@ -9,6 +9,7 @@
 
 <h2>ListStudents</h2>
 
+@*THIS LISTS THE NAME AND ID OF THE STUDENT FROM THE STUDENT CLASS IN A TABLE*@
 <table class="table">
     <thead>
         <tr>
@@ -26,7 +27,7 @@
                 <td>@student.Surname</td>
                 <td>@student.ID</td>
 
-                <td> <a asp-page="StudentDetails" asp-route-id="@student.ID">Details</a></td>
+                <td> <a asp-page="StudentDetails" asp-route-id="@student.ID">Details and Cost</a></td>
             </tr>
         }
     </tbody>

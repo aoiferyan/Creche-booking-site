@@ -11,10 +11,7 @@ namespace Aoife_Ryan_S00190488.Pages.Students
 {
     public class ListStudentsModel : PageModel
     {
-        //public void OnGet()
-        //{
-
-        //}
+        // THIS GETS THE INFO FROM THE DATABASE AND ADDS TO THE LIST
         private readonly CollegeContext _db;
 
         public ListStudentsModel(CollegeContext db)

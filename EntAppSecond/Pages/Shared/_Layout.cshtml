@@ -12,16 +12,18 @@
 
 </head>
 <body>
-    <header>
-        <h1 id="mainText" style="font-family: 'Staatliches', cursive; background-color:aquamarine; text-align:center;">The Sligo Creche<i class="fas fa-plane-departure"></i></h1>
+    <header  style="background-color:aquamarine; width: 1150px; height: 100px; margin-left:225px;">
+        <h1 class="col-sm-12" id="mainText" style="font-family: 'Staatliches', cursive;  text-align:center;">The Sligo Creche<i class="fas fa-plane-departure"></i></h1>
         <br />
     </header>
     <div class="container">
 
         <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="About">Home</a></li>
-            <li><a href="Create">Application Form</a></li>
-            <li><a href="ListStudents">List of Students</a></li>
+
+            <li><a asp-page="/Index">Home</a></li>
+            <li><a asp-page="/Students/Create">Application Form</a></li>
+            <li><a asp-page="/Students/ListStudents">List of Students</a></li>
+
         </ul>
     </div>
     <!--start of carousel-->
@@ -72,9 +74,11 @@
 
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+        <script src="~/js/site.js" asp-append-version="true"></script>
         @RenderSection("Scripts", required: false)
 </body>
 </html>

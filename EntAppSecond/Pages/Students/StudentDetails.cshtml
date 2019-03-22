@@ -4,37 +4,124 @@
     ViewData["Title"] = "StudentDetails";
 }
 
-<h2>StudentDetails</h2>
+<h2>StudentDetails and Cost</h2>
 
+@*TABLE CONTAINING ALL THE INFO ON THE STUDENT FROM THE APPLICATION PAGE*@
 <table>
     <tr>
-        <td>@Model.Student.Firstname</td>
+        <td>Name: @Model.Student.Firstname</td>
     </tr>
     <tr>
-        <td>@Model.Student.Surname</td>
+        <td>Surname: @Model.Student.Surname</td>
     </tr>
     <tr>
-        <td>@Model.Student.ID</td>
+        <td>Personal ID Number: @Model.Student.ID</td>
     </tr>
     <tr>
-        <td>@Model.Student.DOB</td>
+        <td>Date of Birth: @Model.Student.DOB</td>
     </tr>
     <tr>
-        <td>@Model.Student.Gender</td>
-        <td>@Model.Student.ParentFN</td>
-        <td>@Model.Student.ParentSN</td>
-        <td>@Model.Student.Relationship</td>
-        <td>@Model.Student.Address</td>
-        <td>@Model.Student.MobileNum</td>
-        <td>@Model.Student.Email1</td>
+        <td>Gender: @Model.Student.Gender</td>
     </tr>
+    <tr>
+        <td> Parent/Guardian First Name:@Model.Student.ParentFN</td>
+    </tr>
+    <tr>
+        <td>Parent/Guardian Surname: @Model.Student.ParentSN</td>
+    </tr>
+    <tr>
+        <td>Relationship to Child: @Model.Student.Relationship</td>
+    </tr>
+    <tr>
+        <td>Address: @Model.Student.Address</td>
+    </tr>
+    <tr>
+        <td>Mobile Number: @Model.Student.MobileNum</td>
+    </tr>
+    <tr>
+        <td>Email: @Model.Student.Email1</td>
+    </tr>
+    <tr>
+        <td>Number of Days Selected: </td>
+        @if (Model.Student.Monday)
+        {
+
+            <td> Monday</td>
+        }
+        @if (Model.Student.Tuesday)
+        {
+            <td>Tuesday</td>
+        }
+        @if (Model.Student.Wednesday)
+        {
+            <td>Wednesday</td>
+        }
+        @if (Model.Student.Thursday)
+        {
+            <td>Thursday</td>
+        }
+        @if (Model.Student.Friday)
+        {
+            <td>Friday</td>
+        }
+    </tr>
+    <tr>
+        <td>Parttime or Fulltime</td>
+        @if (Model.Student.PartTime)
+        {
+            <td>Parttime</td>
+        }
+        @if (Model.Student.FullTime)
+        {
+            <td>Fulltime</td>
+        }
+    </tr>
+    @*DISPLAYING THE NUMBER OF DAYS SELECTED. CHANGING DAYS FROM BOOL TO INT EACH TRUE =1 AND EACH FALSE =0*@ 
+    <tr>
+        <td>
+            Number of Days Selected:
+            @(Convert.ToInt32(Model.Student.Monday) +
+                    Convert.ToInt32(Model.Student.Tuesday) +
+                    Convert.ToInt32(Model.Student.Wednesday) +
+                    Convert.ToInt32(Model.Student.Thursday) +
+                    Convert.ToInt32(Model.Student.Friday)
+            )
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Cost:
+            @if (Model.Student.PartTime)
+            {
+
+                Model.Student.Cost = "€ " + (20 * (Convert.ToInt32(Model.Student.Monday) +
+                Convert.ToInt32(Model.Student.Tuesday) +
+                Convert.ToInt32(Model.Student.Wednesday) +
+                Convert.ToInt32(Model.Student.Thursday) +
+                Convert.ToInt32(Model.Student.Friday))).ToString();
+                @Model.Student.Cost;
+
+            }
+            else if (Model.Student.FullTime)
+            {
+
+
+                Model.Student.Cost = "€ " + (35 * (Convert.ToInt32(Model.Student.Monday) +
+                Convert.ToInt32(Model.Student.Tuesday) +
+                Convert.ToInt32(Model.Student.Wednesday) +
+                Convert.ToInt32(Model.Student.Thursday) +
+                Convert.ToInt32(Model.Student.Friday))).ToString();
+                @Model.Student.Cost;
+            }
+        </td>
+    </tr>
+    
+    @*<tr>
+        <td>Start Date: @Model.Student.StartDate</td>
+    </tr>*@
 </table>
 
-<ul>
-    @*<li>
-        <a asp-page="StudentDetails" asp-route-id=@Model.Student.ID>Details</a>
-    </li>*@
-</ul>
+
 <form method="post">
     <input type="hidden" asp-for=Student.ID />
     <button type="submit">Delete</button>

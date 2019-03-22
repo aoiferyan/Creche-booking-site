@@ -24,32 +24,75 @@ body {
     font-style:italic;
 }
 
+/*This styles the create.cshtml page for the information about the child*/ 
 #section1 {
     float: left;
-    width: 40%;
+    width: 48%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-}
+    height: 875px;
 }
 
-#section2 {
+/*This styles the create.cshtml page for the information about the parent and contact info*/ 
+#section2{
     float: left;
-    width: 40%;
-    margin-bottom: 50px;
+    
+    width: 48%;
+    margin-left: 20px;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
 }
+ 
+#section3 {
+    clear: left;
+    
+}
+/*This styles the create.cshtml page for the days requested checkbox*/ 
+#div1 {
+    float: left;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width:350px;
+    margin-top:25px;
+}
 
+/*This styles the create.cshtml page for the hours requested containing  checkbox*/ 
+#div2 {
+    float: left;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 250px;
+    width: 350px;
+    margin-top: 25px;
+}
+
+/*This styles the create.cshtml page for the start date*/ 
+#div3 {
+    float: left;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 250px;
+    width: 350px;
+    margin-top: 25px;
+}
+
+/*This styles all pages from the _layout pages footer tag*/ 
 footer {
     width: 100%;
     height: 55px;
-    background-color:antiquewhite;
-    color:aquamarine;
-    margin-top:100px;
+    background-color:aquamarine;
+    color:black;
+    margin-top:50px;
 }
 
+/*This styles the create.cshtml pages input element that is a type text*/ 
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -60,6 +103,8 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+
+/*This styles the create.cshtml pages input element that is a type number*/ 
 input[type=number], select {
     width: 100%;
     padding: 12px 20px;
@@ -69,7 +114,7 @@ input[type=number], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+/*This styles the create.cshtml pages input element that is a type submit*/ 
 button[type=submit] {
     width: 30%;
     background-color: #4CAF50;
@@ -81,6 +126,19 @@ button[type=submit] {
     cursor: pointer;
 }
 
+    /*This styles the create.cshtml pages input element that is a type submit*/ 
     button[type=submit]:hover {
         background-color: #45a049;
     }
+
+/*This styles the create.cshtml pages input element that is a type date*/ 
+input[type=date], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+

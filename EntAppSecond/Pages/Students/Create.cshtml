@@ -5,8 +5,7 @@
 @{
     ViewData["Title"] = "Create";
 }
-@*//<h2>@ViewData["Title"]</h2>*@
-@*//<h3>@Model.Message</h3>*@
+
 
 <!DOCTYPE html>
 <html>
@@ -16,12 +15,16 @@
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Sligo Creche Application Form</h1>
+    @*This is the header*@
+    <header>
+        <h1>Sligo Creche Application Form</h1>
+    </header>
+
+    @*START OF FORM ELEMENT*@
     <form method="post">
 
-        <div asp-validation-summary="All"></div>
-
-        <section id="section1">
+        @*SECTION ASKS ABOUT THE CHILD AS FORM INPUT ELEMENTS*@
+        <section class="col-sm-6" id="section1">
             <h3>About Child:</h3>
 
             <div>
@@ -37,7 +40,9 @@
             <div>
                 <label asp-for=Student.ID></label>
                 <input asp-for=Student.ID />
+                <span asp-validation-for=Student.ID></span>
             </div>
+
             <div>
                 <label asp-for=Student.DOB></label>
                 <input asp-for=Student.DOB type="date" />
@@ -46,7 +51,10 @@
                 <label asp-for=Student.Gender></label>
                 <input asp-for=Student.Gender />
             </div>
-       
+        </section>
+
+        @*SECTION ASKS ABOUT THE PARENT AS FORM INPUT ELEMENTS*@
+        <article class="col-sm-6" id="section2">
             <div>
                 <h3>About Parent/Guardian:</h3>
 
@@ -80,36 +88,67 @@
             <div>
                 <label asp-for=Student.Email1>Primary Email</label>
                 <input asp-for=Student.Email1 />
+                <span asp-validation-for="Student.Email1"></span>
             </div>
             <div>
                 <label asp-for=Student.Email2>Second Email</label>
                 <input asp-for=Student.Email2 />
             </div>
-        </section>
-        <section id="section2">
-            <h3>Hours Requested</h3>
-            <fieldset>
-                <legend>Please choose one option</legend>
-                <input value=FullTime name="Operation" id=FullTime type="radio" /> <label for=FullTime>FullTime</label>
-                <input value=PartTime name="Operation" id=PartTime type="radio" /> <label for=PartTime>PartTime</label>
-            </fieldset>
+        </article>
 
-            <h3>Days Requested</h3>
-            <fieldset>
-                <legend>Please choose any or all options</legend>
-                <input value=Monday name="Operation" id=Monday type="checkbox" /> <label for=Moday>Monday</label>
-                <input value=Tuesday name="Operation" id=Tuesday type="checkbox" /> <label for=Tuesday>Tuesday</label>
-            </fieldset>
+        @*SECTION USES CHECKBOXES TO GET THE DAYS AND IF FULL TIME OR PART TIME *@
+        <section id="section3">
+            <div id="div1">
+                <h3>Days Requested</h3>
+                <div>
+                    <label asp-for=Student.Monday>Monday</label>
+                    <input type="checkbox" asp-for=Student.Monday />
+                </div>
+                <div>
+                    <label asp-for=Student.Tuesday>Tuesday</label>
+                    <input type="checkbox" asp-for=Student.Tuesday />
+                </div>
+                <div>
+                    <label asp-for=Student.Wednesday>Wednesday</label>
+                    <input type="checkbox" asp-for=Student.Wednesday />
+                </div>
+                <div>
+                    <label asp-for=Student.Thursday>Thursday</label>
+                    <input type="checkbox" asp-for=Student.Thursday />
+                </div>
+                <div>
+                    <label asp-for=Student.Friday>Friday</label>
+                    <input type="checkbox" asp-for=Student.Friday />
+                </div>
+                <br />
+            </div>
+            <div id="div2">
+                <h3>Hours Requested</h3>
+                <div>
+                    <label asp-for=Student.PartTime>Partime</label>
+                    <input type="checkbox" asp-for=Student.PartTime />
+                </div>
+                <div>
+                    <label asp-for=Student.FullTime>Fulltime</label>
+                    <input type="checkbox" asp-for=Student.FullTime />
+                </div>
+                <br />
+            </div>
+            <div id="div3">
+                <h3>Start Date Requested</h3>
+                <div>
+                    <label asp-for=Student.DOB>Please Enter Start Date</label>
+                    <input asp-for=Student.DOB type="date" />
+                </div>
+            </div>
 
-            <h3>Start Date Requested</h3>
-            <label asp-for=Student.StartDate>Start date</label>
-            <input asp-for=Student.StartDate type="date" />
         </section>
+
         <br />
-        <br />
-        <button type="submit">Submit here</button>
+        @*SUBMIT BUTTON*@
+        <button style="clear:left; " type="submit">Submit here</button>
     </form>
+    @*END OF FORM ELEMENT*@
 
-    @*<h1>@Model.Message</h1>*@
 </body>
-</html>
+ </html>

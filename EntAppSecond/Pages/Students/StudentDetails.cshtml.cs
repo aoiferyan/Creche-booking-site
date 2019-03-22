@@ -11,6 +11,7 @@ namespace Aoife_Ryan_S00190488.Pages.Students
 {
     public class StudentDetailsModel : PageModel
     {
+       
         private readonly CollegeContext _db;
 
         public StudentDetailsModel(CollegeContext db)
@@ -21,6 +22,8 @@ namespace Aoife_Ryan_S00190488.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
+
+        //THIS GETS STUDENT INFO FROM DATABASE
         public async Task<IActionResult> OnGetAsync(string id)
         {
             Student = await _db.Students.FindAsync(id);
@@ -45,10 +48,6 @@ namespace Aoife_Ryan_S00190488.Pages.Students
 
             return RedirectToPage("ListStudents");
         }
-        //    public void OnGet()
-        //    {
-
-        //    }
-        //
+        
     }
 }
